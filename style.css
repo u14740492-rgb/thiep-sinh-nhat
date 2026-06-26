@@ -1,0 +1,654 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+overflow:hidden;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(-45deg,#ff4e50,#fc913a,#f9d423,#ff6ec4);
+background-size:400% 400%;
+animation:bg 12s ease infinite;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:0;
+}
+
+.overlay{
+position:relative;
+z-index:2;
+padding:20px;
+}
+
+.card{
+width:90%;
+max-width:420px;
+margin:auto;
+background:rgba(255,255,255,.18);
+backdrop-filter:blur(15px);
+border-radius:25px;
+padding:30px;
+text-align:center;
+color:#fff;
+box-shadow:0 0 35px rgba(255,255,255,.3);
+animation:zoom 2s infinite alternate;
+}
+
+@keyframes zoom{
+from{
+transform:scale(1);
+}
+to{
+transform:scale(1.04);
+}
+}
+
+h1{
+font-size:34px;
+margin-bottom:15px;
+text-shadow:0 0 12px #fff;
+}
+
+h2{
+font-size:30px;
+margin-bottom:10px;
+color:#fff59d;
+}
+
+.date{
+font-size:20px;
+margin-bottom:20px;
+}
+
+.wish{
+font-size:18px;
+line-height:1.7;
+margin-bottom:25px;
+}
+
+button{
+padding:14px 35px;
+font-size:18px;
+border:none;
+border-radius:40px;
+background:#ff4081;
+color:#fff;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+background:#ff1744;
+}
+
+#hearts{
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:1;
+overflow:hidden;
+}
+
+.heart{
+position:absolute;
+bottom:-50px;
+font-size:24px;
+animation:fly linear forwards;
+}
+
+@keyframes fly{
+0%{
+transform:translateY(0) scale(0.5);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-110vh) scale(1.5);
+opacity:0;
+}
+}
+
+@media(max-width:600px){
+
+.card{
+padding:22px;
+}
+
+h1{
+font-size:28px;
+}
+
+h2{
+font-size:25px;
+}
+
+.wish{
+font-size:16px;
+}
+
+button{
+font-size:16px;
+padding:12px 28px;
+}
+
+}
+.earth{
+    font-size:90px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:20px auto;
+    animation:earthSpin 4s linear infinite;
+}
+
+@keyframes earthSpin{
+    0%{
+        transform:rotate(0deg);
+    }
+    100%{
+        transform:rotate(360deg);
+    }
+}
+<div class="cat">
+    <div class="head">
+        <div class="ear left"></div>
+        <div class="ear right"></div>
+
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+
+        <div class="nose"></div>
+        <div class="mouth"></div>
+    </div>
+</div>
+/* ===== CAT STYLE ===== */
+
+#birthdayCat{
+display:block;
+margin:25px auto;
+width:260px;
+height:auto;
+overflow:visible;
+filter:drop-shadow(0 10px 20px rgba(0,0,0,.25));
+animation:catFloat 3s ease-in-out infinite;
+}
+
+/* Mắt */
+#eyeL,
+#eyeR{
+transform-origin:center;
+animation:blink 4s infinite;
+}
+
+/* Tai */
+#earLeft{
+transform-origin:130px 70px;
+animation:leftEar 2s ease-in-out infinite;
+}
+
+#earRight{
+transform-origin:190px 70px;
+animation:rightEar 2s ease-in-out infinite;
+}
+
+/* Đuôi */
+#tail{
+transform-origin:250px 215px;
+animation:tailMove 1.2s ease-in-out infinite;
+}
+
+/* Má hồng */
+#birthdayCat circle:nth-of-type(2),
+#birthdayCat circle:nth-of-type(3){
+animation:blush 2.5s ease-in-out infinite;
+}
+
+/* Mèo nhấp nhô */
+
+@keyframes catFloat{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-8px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* Mắt chớp */
+
+@keyframes blink{
+
+0%,45%,55%,100%{
+transform:scaleY(1);
+}
+
+48%,52%{
+transform:scaleY(.08);
+}
+
+}
+
+/* Tai trái */
+
+@keyframes leftEar{
+
+0%,100%{
+transform:rotate(-3deg);
+}
+
+25%{
+transform:rotate(-12deg);
+}
+
+50%{
+transform:rotate(4deg);
+}
+
+75%{
+transform:rotate(-8deg);
+}
+
+}
+
+/* Tai phải */
+
+@keyframes rightEar{
+
+0%,100%{
+transform:rotate(3deg);
+}
+
+25%{
+transform:rotate(12deg);
+}
+
+50%{
+transform:rotate(-4deg);
+}
+
+75%{
+transform:rotate(8deg);
+}
+
+}
+
+/* Đuôi */
+
+@keyframes tailMove{
+
+0%,100%{
+transform:rotate(8deg);
+}
+
+25%{
+transform:rotate(25deg);
+}
+
+50%{
+transform:rotate(-8deg);
+}
+
+75%{
+transform:rotate(18deg);
+}
+
+}
+
+/* Má hồng */
+
+@keyframes blush{
+
+0%,100%{
+opacity:.7;
+}
+
+50%{
+opacity:1;
+}
+
+}
+/* Đầu lắc nhẹ */
+
+#birthdayCat{
+animation:
+catFloat 3s ease-in-out infinite,
+headMove 5s ease-in-out infinite;
+}
+
+@keyframes headMove{
+
+0%,100%{
+transform:translateY(0) rotate(0deg);
+}
+
+25%{
+transform:translateY(-6px) rotate(-2deg);
+}
+
+50%{
+transform:translateY(-8px) rotate(2deg);
+}
+
+75%{
+transform:translateY(-5px) rotate(-1deg);
+}
+
+}
+
+/* Chân nhún */
+
+#frontLegs{
+transform-origin:center;
+animation:pawMove 1.2s ease-in-out infinite;
+}
+
+@keyframes pawMove{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(5px);
+}
+
+}
+
+/* Ria mép rung */
+
+#whiskers{
+transform-origin:center;
+animation:whiskerMove 1.5s ease-in-out infinite;
+}
+
+@keyframes whiskerMove{
+
+0%,100%{
+transform:rotate(0deg);
+}
+
+25%{
+transform:rotate(.8deg);
+}
+
+50%{
+transform:rotate(-.8deg);
+}
+
+75%{
+transform:rotate(.5deg);
+}
+
+}
+
+/* Ánh mắt */
+
+#birthdayCat circle{
+transition:.3s;
+}
+
+#birthdayCat:hover #eyeL,
+#birthdayCat:hover #eyeR{
+
+transform:scale(1.15);
+
+}
+/* ========================= */
+/* PHẦN 4 - HIỆU ỨNG NÂNG CAO */
+/* ========================= */
+
+/* Đuôi mềm hơn */
+#tail{
+    transform-origin:250px 215px;
+    animation:tailSoft 1s ease-in-out infinite;
+}
+
+@keyframes tailSoft{
+    0%{transform:rotate(5deg);}
+    20%{transform:rotate(18deg);}
+    40%{transform:rotate(-8deg);}
+    60%{transform:rotate(20deg);}
+    80%{transform:rotate(-5deg);}
+    100%{transform:rotate(5deg);}
+}
+
+/* Mèo phát sáng */
+#birthdayCat{
+    filter:
+    drop-shadow(0 0 8px #ffd966)
+    drop-shadow(0 0 18px #ffb347)
+    drop-shadow(0 0 28px rgba(255,170,0,.35));
+}
+
+/* Tim bay quanh mèo */
+
+.heart{
+    position:absolute;
+    font-size:20px;
+    animation:heartFly 6s linear infinite;
+    pointer-events:none;
+}
+
+@keyframes heartFly{
+
+0%{
+opacity:0;
+transform:translateY(40px) scale(.4);
+}
+
+20%{
+opacity:1;
+}
+
+100%{
+opacity:0;
+transform:translateY(-220px)
+translateX(60px)
+scale(1.3);
+}
+
+}
+
+/* Sao lấp lánh */
+
+.star{
+position:absolute;
+font-size:14px;
+animation:starBlink 2s infinite;
+pointer-events:none;
+}
+
+@keyframes starBlink{
+
+0%,100%{
+opacity:.2;
+transform:scale(.7);
+}
+
+50%{
+opacity:1;
+transform:scale(1.4);
+}
+
+}
+
+/* Khi rê chuột/chạm */
+
+#birthdayCat:hover{
+
+transform:scale(1.05);
+
+transition:.4s;
+
+}
+/* ========================= */
+/* PHẦN 5 - TRÁI ĐẤT + DẤU CHÂN */
+/* ========================= */
+
+/* Trái Đất */
+
+#earth{
+position:absolute;
+right:40px;
+bottom:80px;
+width:90px;
+height:90px;
+border-radius:50%;
+background:
+radial-gradient(circle at 30% 30%,#6bdcff,#008cff);
+box-shadow:
+0 0 20px #4fc3ff,
+0 0 40px #4fc3ff;
+overflow:hidden;
+animation:
+earthSpin 8s linear infinite,
+earthFloat 3s ease-in-out infinite;
+}
+
+#earth::before{
+
+content:"";
+
+position:absolute;
+
+width:140px;
+height:140px;
+
+background:
+radial-gradient(circle,#42d66c 30%,transparent 31%);
+
+left:-20px;
+top:-20px;
+
+opacity:.8;
+
+}
+
+@keyframes earthSpin{
+
+0%{
+transform:rotate(0deg);
+}
+
+100%{
+transform:rotate(360deg);
+}
+
+}
+
+@keyframes earthFloat{
+
+0%,100%{
+translate:0 0;
+}
+
+50%{
+translate:0 -12px;
+}
+
+}
+
+/* Dấu chân */
+
+.paw{
+
+position:absolute;
+
+font-size:22px;
+
+opacity:.6;
+
+animation:pawFade 4s infinite;
+
+}
+
+@keyframes pawFade{
+
+0%{
+opacity:0;
+transform:scale(.5);
+}
+
+30%{
+opacity:.8;
+}
+
+100%{
+opacity:0;
+transform:translateY(-25px) scale(1.3);
+}
+
+}
+
+/* Hạt sáng */
+
+.spark{
+
+position:absolute;
+
+width:4px;
+height:4px;
+
+border-radius:50%;
+
+background:white;
+
+animation:sparkMove 3s linear infinite;
+
+}
+
+@keyframes sparkMove{
+
+0%{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+20%{
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:0;
+
+transform:translateY(-120px);
+
+}
+
+}

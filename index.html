@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<canvas id="fireworks"></canvas>
+
+<div class="overlay">
+
+<div class="card">
+
+<h1>🎂 Happy Birthday 🎂</h1>
+<div class="earth">🌍</div>
+
+<h2 id="name">Nguyễn Quỳnh Hoa</h2>
+
+<p class="date" id="date">06/04/2012</p>
+
+<p class="wish" id="wish">
+Chúc bạn luôn vui vẻ, hạnh phúc, mạnh khỏe và đạt được mọi điều mình mong muốn.
+</p>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>r
+<div class="cat">
+    <div class="head">
+        <div class="ear left"></div>
+        <div class="ear right"></div>
+
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+
+        <div class="nose"></div>
+        <div class="mouth"></div>
+    </div>
+</div>
+
+<!-- ===== CAT SVG START ===== -->
+<svg id="birthdayCat" width="320" height="320" viewBox="0 0 320 320">
+
+<!-- Đuôi -->
+<g id="tail">
+<path d="M250 215
+Q300 180
+290 110
+Q270 80
+250 95"
+stroke="#d8a56a"
+stroke-width="18"
+fill="none"
+stroke-linecap="round"/>
+</g>
+
+<!-- Thân -->
+<ellipse
+cx="160"
+cy="220"
+rx="70"
+ry="55"
+fill="#f8c98d"/>
+
+<!-- Chân -->
+<g id="frontLegs">
+    <ellipse cx="125" cy="265" rx="18" ry="28" fill="#f8c98d"/>
+    <ellipse cx="195" cy="265" rx="18" ry="28" fill="#f8c98d"/>
+</g>
+<!-- Bụng -->
+<ellipse
+cx="160"
+cy="220"
+rx="42"
+ry="35"
+fill="#fff2de"/>
+
+<!-- Đầu -->
+<circle
+cx="160"
+cy="120"
+r="78"
+fill="#f8c98d"/>
+
+<!-- Tai trái -->
+<g id="earLeft">
+
+<polygon
+points="105,70 125,15 150,70"
+fill="#f8c98d"/>
+
+<polygon
+points="118,60 128,32 140,60"
+fill="#ffb7c5"/>
+
+</g>
+
+<!-- Tai phải -->
+<g id="earRight">
+
+<polygon
+points="170,70 195,15 215,70"
+fill="#f8c98d"/>
+
+<polygon
+points="180,60 192,32 202,60"
+fill="#ffb7c5"/>
+
+</g>
+
+<!-- Má -->
+<circle cx="112" cy="145" r="11" fill="#ff9ab0"/>
+<circle cx="208" cy="145" r="11" fill="#ff9ab0"/>
+
+<!-- Mắt -->
+<ellipse id="eyeL"
+cx="132"
+cy="120"
+rx="9"
+ry="13"
+fill="#222"/>
+
+<ellipse id="eyeR"
+cx="188"
+cy="120"
+rx="9"
+ry="13"
+fill="#222"/>
+
+<!-- Ánh mắt -->
+<circle cx="135" cy="116" r="2.5" fill="white"/>
+<circle cx="191" cy="116" r="2.5" fill="white"/>
+
+<!-- Mũi -->
+<polygon
+points="160,142 152,151 168,151"
+fill="#ff7f9d"/>
+
+<!-- Miệng -->
+<path
+d="M160 151
+Q148 164 136 158"
+stroke="#444"
+stroke-width="2.5"
+fill="none"/>
+
+<path
+d="M160 151
+Q172 164 184 158"
+stroke="#444"
+stroke-width="2.5"
+fill="none"/>
+
+<g id="whiskers">
+
+<line x1="70" y1="145" x2="120" y2="145" stroke="#555" stroke-width="2"/>
+<line x1="72" y1="155" x2="118" y2="150" stroke="#555" stroke-width="2"/>
+<line x1="72" y1="135" x2="118" y2="140" stroke="#555" stroke-width="2"/>
+
+<line x1="200" y1="145" x2="250" y2="145" stroke="#555" stroke-width="2"/>
+<line x1="202" y1="150" x2="248" y2="155" stroke="#555" stroke-width="2"/>
+<line x1="202" y1="140" x2="248" y2="135" stroke="#555" stroke-width="2"/>
+
+</g>
+<!-- ===== CAT SVG END ===== -->
+/* ===== TIM BAY ===== */
+
+for(let i=0;i<18;i++){
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML="❤️";
+
+h.style.left=Math.random()*window.innerWidth+"px";
+
+h.style.top=(200+Math.random()*250)+"px";
+
+h.style.animationDelay=(Math.random()*5)+"s";
+
+document.body.appendChild(h);
+
+}
+
+/* ===== SAO ===== */
+
+for(let i=0;i<30;i++){
+
+let s=document.createElement("div");
+
+s.className="star";
+
+s.innerHTML="✨";
+
+s.style.left=Math.random()*window.innerWidth+"px";
+
+s.style.top=Math.random()*window.innerHeight+"px";
+
+s.style.animationDelay=(Math.random()*3)+"s";
+
+document.body.appendChild(s);
+
+}
+<div id="earth"></div>
+<!-- ================= PART 6: CONFETTI + CAT ANIMATION ================= -->
+
+<canvas id="confetti"></canvas>
+
+<audio id="bgMusic" autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const canvas = document.getElementById("confetti");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let pieces = [];
+
+for (let i = 0; i < 200; i++) {
+  pieces.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 6 + 2,
+    d: Math.random() * 10 + 2,
+    color: `hsl(${Math.random() * 360}, 100%, 60%)`,
+    tilt: Math.random() * 10 - 10
+  });
+}
+
+function drawConfetti() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  pieces.forEach(p => {
+    ctx.beginPath();
+    ctx.fillStyle = p.color;
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fill();
+  });
+
+  updateConfetti();
+}
+
+function updateConfetti() {
+  pieces.forEach(p => {
+    p.y += Math.cos(p.d) + 1 + p.r / 2;
+    p.x += Math.sin(0.01);
+
+    if (p.y > canvas.height) {
+      p.y = 0;
+      p.x = Math.random() * canvas.width;
+    }
+  });
+}
+
+setInterval(drawConfetti, 20);
+</script>
